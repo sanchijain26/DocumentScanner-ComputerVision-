@@ -1,0 +1,5 @@
+opencv-python
+numpy
+easyocr
+fpdf2
+pytest

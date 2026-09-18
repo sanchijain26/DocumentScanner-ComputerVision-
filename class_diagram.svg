@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720">
+<rect width="1100" height="720" fill="#f7fbff"/>
+<text x="550" y="48" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold" fill="#17324d">Class / Component Diagram</text>
+<g font-family="Arial" fill="#17324d" stroke="#4d89bd" stroke-width="2">
+<rect x="55" y="100" width="270" height="230" rx="18" fill="#e8f4ff"/><line x1="55" y1="150" x2="325" y2="150"/><text x="190" y="132" text-anchor="middle" font-size="20" font-weight="bold">Preprocessing</text>
+<text x="75" y="180" font-size="15">resize_for_processing()</text><text x="75" y="208" font-size="15">detect_edges()</text><text x="75" y="236" font-size="15">order_points()</text><text x="75" y="264" font-size="15">four_point_transform()</text><text x="75" y="292" font-size="15">enhance_scan()</text><text x="75" y="320" font-size="15">scan_document()</text>
+<rect x="415" y="100" width="270" height="230" rx="18" fill="#e8f4ff"/><line x1="415" y1="150" x2="685" y2="150"/><text x="550" y="132" text-anchor="middle" font-size="20" font-weight="bold">OCREngine</text>
+<text x="435" y="182" font-size="15">languages</text><text x="435" y="210" font-size="15">gpu</text><text x="435" y="238" font-size="15">min_confidence</text><text x="435" y="266" font-size="15">extract(image)</text><text x="435" y="294" font-size="15">OCRLine</text><text x="435" y="320" font-size="15">OCRResult</text>
+<rect x="775" y="100" width="270" height="230" rx="18" fill="#e8f4ff"/><line x1="775" y1="150" x2="1045" y2="150"/><text x="910" y="132" text-anchor="middle" font-size="20" font-weight="bold">Exporter</text>
+<text x="795" y="182" font-size="15">export_all()</text><text x="795" y="210" font-size="15">export_scan()</text><text x="795" y="238" font-size="15">export_text()</text><text x="795" y="266" font-size="15">export_json()</text><text x="795" y="294" font-size="15">export_pdf()</text><text x="795" y="320" font-size="15">Output files</text>
+<rect x="235" y="455" width="270" height="170" rx="18" fill="#fff4d6"/><line x1="235" y1="505" x2="505" y2="505"/><text x="370" y="487" text-anchor="middle" font-size="20" font-weight="bold">CLI</text><text x="255" y="535" font-size="15">parse arguments</text><text x="255" y="563" font-size="15">run pipeline</text><text x="255" y="591" font-size="15">handle errors</text>
+<rect x="595" y="455" width="270" height="170" rx="18" fill="#fff4d6"/><line x1="595" y1="505" x2="865" y2="505"/><text x="730" y="487" text-anchor="middle" font-size="20" font-weight="bold">Utilities / Logging</text><text x="615" y="535" font-size="15">validate_image_path()</text><text x="615" y="563" font-size="15">ensure_dir()</text><text x="615" y="591" font-size="15">get_logger()</text>
+</g>
+<g stroke="#365d7a" stroke-width="2.5" fill="none" marker-end="url(#a)"><path d="M370 455 L190 330"/><path d="M370 455 L550 330"/><path d="M730 455 L910 330"/><path d="M505 540 L595 540"/></g>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#365d7a"/></marker></defs>
+</svg>

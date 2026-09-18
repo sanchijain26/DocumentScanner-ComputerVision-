@@ -1,0 +1,66 @@
+<svg viewBox="0 0 920 460" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .box { fill:#ffffff; stroke:#2563eb; stroke-width:2; rx:10; }
+    .mod { fill:#eff6ff; stroke:#2563eb; stroke-width:2; rx:10; }
+    .ext { fill:#fef3c7; stroke:#b45309; stroke-width:2; rx:10; }
+    .title { font-size:20px; font-weight:bold; fill:#111827; }
+    .label { font-size:15px; font-weight:600; fill:#111827; }
+    .sub { font-size:12px; fill:#374151; }
+    .arrow { stroke:#374151; stroke-width:2; fill:none; marker-end:url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="30" class="title">System Architecture — Document Scanner &amp; OCR Text Extractor</text>
+
+  <!-- CLI layer -->
+  <rect x="30" y="60" width="860" height="60" class="box"/>
+  <text x="460" y="85" text-anchor="middle" class="label">CLI Interface (src/cli.py)</text>
+  <text x="460" y="105" text-anchor="middle" class="sub">Parses arguments · orchestrates pipeline · prints summary</text>
+
+  <!-- Module 1 -->
+  <rect x="30" y="160" width="260" height="110" class="mod"/>
+  <text x="160" y="185" text-anchor="middle" class="label">Module 1</text>
+  <text x="160" y="205" text-anchor="middle" class="sub">Preprocessing</text>
+  <text x="160" y="222" text-anchor="middle" class="sub">(src/preprocessing.py)</text>
+  <text x="160" y="242" text-anchor="middle" class="sub">Edge detect → contour →</text>
+  <text x="160" y="258" text-anchor="middle" class="sub">perspective warp → enhance</text>
+
+  <!-- Module 2 -->
+  <rect x="330" y="160" width="260" height="110" class="mod"/>
+  <text x="460" y="185" text-anchor="middle" class="label">Module 2</text>
+  <text x="460" y="205" text-anchor="middle" class="sub">OCR Engine</text>
+  <text x="460" y="222" text-anchor="middle" class="sub">(src/ocr_engine.py)</text>
+  <text x="460" y="242" text-anchor="middle" class="sub">EasyOCR wrapper · confidence</text>
+  <text x="460" y="258" text-anchor="middle" class="sub">filtering · text aggregation</text>
+
+  <!-- Module 3 -->
+  <rect x="630" y="160" width="260" height="110" class="mod"/>
+  <text x="760" y="185" text-anchor="middle" class="label">Module 3</text>
+  <text x="760" y="205" text-anchor="middle" class="sub">Exporter</text>
+  <text x="760" y="222" text-anchor="middle" class="sub">(src/exporter.py)</text>
+  <text x="760" y="242" text-anchor="middle" class="sub">Writes .txt / .json / .pdf /</text>
+  <text x="760" y="258" text-anchor="middle" class="sub">flattened scan image</text>
+
+  <!-- Support layer -->
+  <rect x="30" y="310" width="410" height="60" class="ext"/>
+  <text x="235" y="335" text-anchor="middle" class="label">Cross-cutting: utils.py</text>
+  <text x="235" y="353" text-anchor="middle" class="sub">Validation · custom exceptions · error handling</text>
+
+  <rect x="480" y="310" width="410" height="60" class="ext"/>
+  <text x="685" y="335" text-anchor="middle" class="label">Cross-cutting: logger_config.py</text>
+  <text x="685" y="353" text-anchor="middle" class="sub">Console + file logging (output/pipeline.log)</text>
+
+  <!-- Storage -->
+  <rect x="330" y="400" width="260" height="50" class="box"/>
+  <text x="460" y="430" text-anchor="middle" class="label">output/ directory</text>
+
+  <!-- Arrows -->
+  <path d="M460,120 L460,158" class="arrow"/>
+  <path d="M290,215 L328,215" class="arrow"/>
+  <path d="M590,215 L628,215" class="arrow"/>
+  <path d="M760,270 L760,290 L460,290 L460,398" class="arrow"/>
+</svg>

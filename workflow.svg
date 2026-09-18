@@ -1,0 +1,84 @@
+<svg viewBox="0 0 900 1000" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .step { fill:#eff6ff; stroke:#2563eb; stroke-width:2; }
+    .decision { fill:#fef3c7; stroke:#b45309; stroke-width:2; }
+    .terminal { fill:#dcfce7; stroke:#15803d; stroke-width:2; }
+    .fail { fill:#fee2e2; stroke:#b91c1c; stroke-width:2; }
+    .label { font-size:14px; fill:#111827; font-weight:600; }
+    .sub { font-size:11px; fill:#374151; }
+    .arrow { stroke:#374151; stroke-width:2; fill:none; marker-end:url(#arrow2); }
+    .title { font-size:20px; font-weight:bold; fill:#111827; }
+  </style>
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="30" class="title">Workflow / Process Flow</text>
+
+  <ellipse cx="450" cy="70" rx="110" ry="28" class="terminal"/>
+  <text x="450" y="75" text-anchor="middle" class="label">Start: user runs CLI</text>
+
+  <rect x="330" y="130" width="240" height="50" rx="8" class="step"/>
+  <text x="450" y="160" text-anchor="middle" class="label">Load &amp; validate image</text>
+
+  <polygon points="450,210 560,255 450,300 340,255" class="decision"/>
+  <text x="450" y="250" text-anchor="middle" class="sub">Valid file?</text>
+  <text x="450" y="265" text-anchor="middle" class="sub">(extension/exists)</text>
+
+  <rect x="640" y="230" width="220" height="50" rx="8" class="fail"/>
+  <text x="750" y="255" text-anchor="middle" class="label">Raise InvalidFileError</text>
+  <text x="750" y="268" text-anchor="middle" class="sub">log &amp; report to user</text>
+
+  <rect x="330" y="330" width="240" height="50" rx="8" class="step"/>
+  <text x="450" y="360" text-anchor="middle" class="label">Detect edges + contour</text>
+
+  <polygon points="450,410 570,458 450,506 330,458" class="decision"/>
+  <text x="450" y="453" text-anchor="middle" class="sub">4-point document</text>
+  <text x="450" y="468" text-anchor="middle" class="sub">contour found?</text>
+
+  <rect x="20" y="432" width="230" height="50" rx="8" class="step"/>
+  <text x="135" y="455" text-anchor="middle" class="label">Fallback: use original</text>
+  <text x="135" y="470" text-anchor="middle" class="sub">image (no crop)</text>
+
+  <rect x="330" y="536" width="240" height="50" rx="8" class="step"/>
+  <text x="450" y="560" text-anchor="middle" class="label">Perspective transform</text>
+  <text x="450" y="575" text-anchor="middle" class="sub">(flatten document)</text>
+
+  <rect x="330" y="616" width="240" height="50" rx="8" class="step"/>
+  <text x="450" y="640" text-anchor="middle" class="label">Enhance scan</text>
+  <text x="450" y="655" text-anchor="middle" class="sub">(adaptive threshold)</text>
+
+  <rect x="330" y="696" width="240" height="50" rx="8" class="step"/>
+  <text x="450" y="720" text-anchor="middle" class="label">Run OCR (EasyOCR)</text>
+
+  <polygon points="450,770 570,818 450,866 330,818" class="decision"/>
+  <text x="450" y="813" text-anchor="middle" class="sub">Text found above</text>
+  <text x="450" y="828" text-anchor="middle" class="sub">min-confidence?</text>
+
+  <rect x="640" y="793" width="220" height="50" rx="8" class="fail"/>
+  <text x="750" y="818" text-anchor="middle" class="label">Raise OCRExtractionError</text>
+  <text x="750" y="831" text-anchor="middle" class="sub">log &amp; report to user</text>
+
+  <rect x="330" y="896" width="240" height="50" rx="8" class="step"/>
+  <text x="450" y="920" text-anchor="middle" class="label">Export: txt/json/pdf/image</text>
+
+  <ellipse cx="450" cy="975" rx="120" ry="24" class="terminal"/>
+  <text x="450" y="980" text-anchor="middle" class="label">End: results in output/</text>
+
+  <!-- arrows -->
+  <path d="M450,98 L450,128" class="arrow"/>
+  <path d="M450,180 L450,208" class="arrow"/>
+  <path d="M450,300 L450,328" class="arrow"/>
+  <path d="M560,255 L640,255" class="arrow"/>
+  <path d="M450,506 L450,534" class="arrow"/>
+  <path d="M330,458 L250,458" class="arrow"/>
+  <path d="M135,482 L135,720 L330,720" class="arrow"/>
+  <path d="M450,586 L450,614" class="arrow"/>
+  <path d="M450,666 L450,694" class="arrow"/>
+  <path d="M450,746 L450,768" class="arrow"/>
+  <path d="M450,866 L450,894" class="arrow"/>
+  <path d="M570,818 L640,818" class="arrow"/>
+  <path d="M450,946 L450,951" class="arrow"/>
+</svg>
